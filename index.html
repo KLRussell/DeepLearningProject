@@ -48,8 +48,8 @@ small {
  and potentially gain performance.
  <br>
  <br>
- Another way to potentially increase performance will be to use a word embedding trick. 
- <a href='#[1]'>Vinyals [1]</a> mentioned that the word embedding vector model, chosen over the one-hot encoding and bag-of-words, 
+ Another way to potentially increase performance will be to use a word embedding trick. Vinyals 
+ <a href='#[1]'>[1]</a> mentioned that the word embedding vector model, chosen over the one-hot encoding and bag-of-words, 
  was selected because of its independence from dictionary size and information structure. We propose to adjust 
  the word embeddings so that the words with similar definitions are closest to each other. This should allow 
  better sentence selection to describe the image, and improve performance of the NIC model. By adjusting word 
