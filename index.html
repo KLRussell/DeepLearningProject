@@ -44,7 +44,7 @@
  <br>
  <br>
  Another way to potentially increase performance will be to use a word embedding trick. 
- <a href='[1]'>Vinyals [1]</a> mentioned that the word embedding vector model, chosen over the one-hot encoding and bag-of-words, 
+ <a href='#[1]'>Vinyals [1]</a> mentioned that the word embedding vector model, chosen over the one-hot encoding and bag-of-words, 
  was selected because of its independence from dictionary size and information structure. We propose to adjust 
  the word embeddings so that the words with similar definitions are closest to each other. This should allow 
  better sentence selection to describe the image, and improve performance of the NIC model. By adjusting word 
@@ -59,14 +59,14 @@
 <h2>Related Work</h2>
 
 <p>
- In 2015, <a href="[1]">Oriol Vinyals</a> and his team were successfully able to automatically generate a caption given 
+ In 2015, <a href="#[1]">Oriol Vinyals</a> and his team were successfully able to automatically generate a caption given 
  an input image by combining advanced computer vision and natural language processing techniques. 
  The model, dubbed the Neural Image Caption (NIC), utilizes Convolution Neural Networks (CNN) and 
  Recurrent Neural Network (RNN) technology to capture not only objects within the images, but also 
  relationships between them. Previous attempts to solve the problem proposed to glue together sentences 
- from images or image descriptions to describe the content of an image with words <a href='[2]'>[2]</a>,<a href='[3]'>[3]</a>.
+ from images or image descriptions to describe the content of an image with words <a href='#[2]'>[2]</a>,<a href='#[3]'>[3]</a>.
  However, this paper presented a novel technique that achieved state-of-the-art performance inspired by breakthroughs 
- made in 2014 in machine translation. <a href='[4]'>Cho, et. al [4]</a> proved that text translation can be achieved by 
+ made in 2014 in machine translation. <a href='#[4]'>Cho, et. al [4]</a> proved that text translation can be achieved by 
  simply leveraging RNNs to encode source sentences, then decode them to generate target sentences. 
  Vinyals, et. al. were able to adapt this idea to form a more robust model using a CNN as the encoder 
  which produces a rich representation of the input image by embedding it to a fixed-length vector. 
@@ -75,7 +75,7 @@
  The NIC model directly maximizes the probability of correctly describing an image. To model the probability of 
  a sentence given an image, a particular RNN called Long-Short Term Memory (LSTM) was selected due to its 
  abilities for handling sequence tasks as well as vanishing and exploding gradients. As input to the LSTM model, 
- the authors chose to use word embedding vectors <a href='[5]'>[5]</a> and speculated that distances between word embeddings may 
+ the authors chose to use word embedding vectors <a href='#[5]'>[5]</a> and speculated that distances between word embeddings may 
  provide more insight for rarer words. We aim to explore this hypothesis by adjusting the word embedding vector 
  representations such that each word is closest to other words with similar definitions. This in turn can improve 
  the performance of the model in some particular edge cases. An important note also mentioned in the paper indicated 
