@@ -82,16 +82,16 @@ Training ran overnight and was able to successfully save the best model possible
 <h2>Our Findings</h2>
 <p>
 A major obstacle that we avoided was to not recode something that exists as an online resource. At first we attempted to
-use Li Tong’s PyTorch implementation <a href="#[4]">[4]</a> for NIC, but had issues downloading Visual Genome from Stanford. Eventually, we
+use Li Tong's PyTorch implementation <a href="#[4]">[4]</a> for NIC, but had issues downloading Visual Genome from Stanford. Eventually, we
 found a model created by Shwetank Panwar <a href="#[3]">[3]</a> that allowed us to train a model with a publicly available dataset. However,
 there were many difficulties loading the actual dataset into the original model due to compiling complications. This was
 solved by simply modifying the source code to specify the file paths on our own machine and installing the pycocotools
 package <a href="#[1]">[1]</a>.
 <br>
 <br>
-Before running the model, we expected that the process to load/download data and run an existing model. However, Li’s model
+Before running the model, we expected that the process to load/download data and run an existing model. However, Li's model
 needed the bottom up attention approach to extract annotations from images. Surprisingly, the method labels segments of each
-image and records the areas of these segments. In contrast, Shwetank’s approach used the MSCOCO dataset, which is a large
+image and records the areas of these segments. In contrast, Shwetank's approach used the MSCOCO dataset, which is a large
 pre-existing dataset that already has human-generated annotations for each image.
 <br>
 <br>
@@ -117,7 +117,7 @@ Since our implementation was successful, we have decided to not change our plan,
 to see if we can augment the images and adjust the algorithm for the word embeddings. We also plan to tune our hyperparameters
 because we have encountered sub-optimal results even with a large and robust dataset such as MSCOCO. Furthermore, we would like
 to utilize other smaller datasets to apply these new techniques. In particular, the original NIC paper tested the model on the
-Flickr8k dataset, which contains only 6,000 training images compared to MSCOCO’s 82,783 training size. We hypothesize that data
+Flickr8k dataset, which contains only 6,000 training images compared to MSCOCO's 82,783 training size. We hypothesize that data
 augmentation and word vector embedding adjustment will be most effective with a significantly smaller dataset, having less training
 data adversely affects model performance.
 </p>
