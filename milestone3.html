@@ -46,7 +46,7 @@ small {
 <h2>Block Diagram</h2>
 <p>The diagram below presents a high level description of our implementation:</p>
 
-<table style="width: 50%;margin: auto;">
+<table style="width: 75%;margin: auto;">
    <tr>
       <td><img src="img/block_diagram.png" alt="Block Diagram" class="responsive"></img></td>
    </tr>
@@ -113,17 +113,16 @@ small {
  so that we can understand the best way to improve its performance. In total, we compared results 
  for the original NIC paper architect, PyTorch-based NIC architect by Shwetank Panwar <a href = #[6]>[6]</a>, and the 
  re-implementation of our own version of NIC (Table 1).
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Table_1.png" alt="Table 1" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
+
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Table_1.png" alt="Table 1" class="responsive"></img></td>
+    </tr>
+ </table>
+</p>
 
 <p>
 <b>Table 1.</b> Architecture comparison of the original NIC model, Shwetank Panwar's PyTorch implementation of NIC, 
@@ -136,36 +135,35 @@ small {
  which boasts fast and flexible image augmentations, to perform these transformations. 
  We selected these functions because we wanted to create diversity within the dataset so that
  the model could better learn image captioning.
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Figure_2.png" alt="Figure 2" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
 
-<p>
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Figure_2.png" alt="Figure 2" class="responsive"></img></td>
+    </tr>
+ </table>
+
+ <br>
+ <br>
+
  We also discovered a newer sampling method called nucleus sampling that leverages probability mass 
  to filter the cumulative distribution function (CDF) of the word probabilities to sample among words 
  that may be more surprising than samples made through beam search or top sampling <a href = #[8]>[8]</a>. To implement 
  nucleus sampling, we chose to utilize Temperature Sampling to choose among the word probabilities. 
  Temperature Sampling is inspired by statistical thermodynamics where high temperature means low energy
  states are more likely to occur <a href = #[9]>[9]</a>.
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Figure_3.png" alt="Figure 2" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
+
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Figure_3.png" alt="Figure 2" class="responsive"></img></td>
+    </tr>
+ </table>
+</p>
 
 <h2>Results</h2>
 <p>
@@ -173,53 +171,53 @@ small {
  generate text descriptive of the input images using Method 1 (Figure 4). As shown in Figure 4 (A), 
  the captions on both images do not describe the scene at all. We suspected that this is due to the 
  more complex image augmentations performed on the images for the second and third methods.
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Figure_4.png" alt="Figure 4" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
 
-<p>
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Figure_4.png" alt="Figure 4" class="responsive"></img></td>
+    </tr>
+ </table>
+
+ <br>
+ <br>
+
  By probing into the model, we discovered the underlying reason these methods were underperforming. 
  The sample augmentation image displayed in Figure 5 confirmed our belief that image augmentation can
  be detrimental to the model when applied in excess. In identifying this issue with Methods 2 and 3, 
  we decided to move forward using Method 1 only to train the model and then test the effect of nucleus sampling.
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Figure_5.png" alt="Figure 5" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
 
-<p>
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Figure_5.png" alt="Figure 5" class="responsive"></img></td>
+    </tr>
+ </table>
+
+ <br>
+ <br>
+
  We evaluated the model by generating captions for every image in the validation set of 5,000 images,
  computing the BLEU-4 scores against the five human-written annotations as the reference, and taking 
  the mean of all scores. The results show that our model outperforms both the original NIC architecture
  and the aforementioned Shwetank model (Figure 6).
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Figure_6.png" alt="Figure 6" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
 
-<p>
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Figure_6.png" alt="Figure 6" class="responsive"></img></td>
+    </tr>
+ </table>
+
+ <br>
+ <br>
+
  Notably, the use of nucleus sampling significantly increased performance in both of the tested models,
  yielding BLEU-4 scores of 31.1 and 27.5 for our model and Shwetank's model, respectively. When generating
  captions with beam search, however, this degraded the scores by approximately 3 points for both methods.
@@ -237,19 +235,19 @@ small {
  separate models and identify the most effective architecture adjustment. However, this would be an interesting
  aspect to explore in the future by changing one element in the architecture at a time, then training and 
  evaluating the model.
-</p>
 
-</div><!--col-->
-</div><!--row -->
-<div class="row">
-<div class="col justify-content-center text-center">
-<img src="img/Table_2.png" alt="Table 2" class="responsive"></img>
-</div>
-</div>
-<div class="row">
-<div class="col">
+ <br>
+ <br>
 
-<p>
+ <table style="width: 50%;margin: auto;">
+    <tr>
+       <td><img src="img/Table_2.png" alt="Table 2" class="responsive"></img></td>
+    </tr>
+ </table>
+
+ <br>
+ <br>
+
  Table 2 displays the BLEU-4 scores for our method along with several others that have been successful 
  in the recent years. The key developments include semantic representation of the input image and the addition
  of attention <a href = #[10]>[10]</a>. While our method could not outperform these models that incorporate new and advanced technology,
@@ -259,7 +257,11 @@ small {
 
 <h2>Slides</h2>
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQED7TaFZA1qD6vNmp_KcdWe8nJIKwvQsfrsBR8nBhyQowTuk98A4D0kaOJx43MwFfkGlIFhfyVx2I3/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<table style="width: 50%;margin: auto;">
+    <tr>
+       <td><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQED7TaFZA1qD6vNmp_KcdWe8nJIKwvQsfrsBR8nBhyQowTuk98A4D0kaOJx43MwFfkGlIFhfyVx2I3/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></td>
+    </tr>
+ </table>
 
 <h2>Source Code</h2>
 <p>
